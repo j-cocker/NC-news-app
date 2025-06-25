@@ -4,10 +4,11 @@ import { useParams } from "react-router-dom";
 import { getArticle } from "../utility/getApi";
 import { Link } from "react-router-dom";
 import CommentSection from "./CommentSection";
+import Votes from "./Votes";
+import { patchArticleVotes } from "../utility/patchApi";
 
 const Article = () => {
     const { id } = useParams();
-    console.log(id);
 
     const [currentArticle, setCurrentArticle] = useState(null);
 
@@ -28,6 +29,11 @@ const Article = () => {
                     </Link>
                     <p>{displayTime}</p>
                     <img src={article.article_img_url} />
+                    <Votes
+                        id={article.article_id}
+                        votes={article.votes}
+                        patchFunc={patchArticleVotes}
+                    />
                     <p>{article.body}</p>
                 </>
             );
