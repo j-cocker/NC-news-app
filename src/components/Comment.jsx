@@ -2,12 +2,21 @@ import moment from "moment";
 
 const Comment = ({ comment }) => {
     const id = comment.comment_id;
-    const displayTime = moment
-        .unix(Date.parse(comment.created_at) / 1000, "DD MMM YYYY hh:mm a")
-        .calendar();
-
+    console.log(id);
+    const displayTime =
+        id === "pending"
+            ? moment.unix(Date.now() / 1000, "DD MMM YYYY hh:mm a").calendar()
+            : moment
+                  .unix(
+                      Date.parse(comment.created_at) / 1000,
+                      "DD MMM YYYY hh:mm a"
+                  )
+                  .calendar();
     return (
-        <div key={comment.comment_id} className="comment-card">
+        <div
+            key={comment.comment_id}
+            className={"comment-card" + (id === "pending" ? " pending" : "")}
+        >
             <p>{comment.author}</p>
             <p>{displayTime}</p>
             <p>{comment.body}</p>

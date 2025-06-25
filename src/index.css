@@ -84,3 +84,14 @@ footer {
 .top-bar {
     display: inline;
 }
+
+.error {
+    font-size: small;
+    color: red;
+}
+
+.pending {
+    p {
+        color: grey;
+    }
+}
