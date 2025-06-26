@@ -23,8 +23,10 @@ const Article = () => {
             const formatArticle = (
                 <>
                     <h2>{article.title}</h2>
-                    <h3>{article.topic}</h3>
-                    <Link to={`users/${article.author}`}>
+                    <Link to={`/topics/${article.topic}`}>
+                        <h3>{article.topic}</h3>
+                    </Link>
+                    <Link to={`/users/${article.author}`}>
                         <p>{article.author}</p>
                     </Link>
                     <p>{displayTime}</p>

@@ -20,7 +20,12 @@ const Topic = () => {
         });
     }, []);
 
-    return topicArticles;
+    return (
+        <>
+            <h2>{topic}</h2>
+            {topicArticles}
+        </>
+    );
 };
 
 export default Topic;
