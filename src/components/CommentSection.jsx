@@ -18,7 +18,11 @@ const CommentSection = ({ article_id }) => {
                 .map((comment) => {
                     //comments columns: body, votes, author, created_at
                     return (
-                        <Comment comment={comment} key={comment.comment_id} />
+                        <Comment
+                            comment={comment}
+                            updateComments={getFormattedComments}
+                            key={comment.comment_id}
+                        />
                     );
                 })
                 .reverse();

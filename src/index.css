@@ -82,7 +82,12 @@ footer {
 }
 
 .top-bar {
-    display: inline;
+    border-style: dashed;
+    padding: 1rem;
+    background-color: red;
+    h1 {
+        color: black;
+    }
 }
 
 .error {
